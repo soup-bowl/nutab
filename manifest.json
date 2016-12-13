@@ -24,6 +24,7 @@
     "default_title": "__MSG_appName__"
   },
   "permissions": [
-    "bookmarks"
+    "bookmarks",
+    "chrome://favicon/"
   ]
 }
