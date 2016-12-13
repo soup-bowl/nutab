@@ -1,6 +1,7 @@
 // out: ../css/newtab.css, compress: true, sourceMap: true
 
 body {
+    background-color: black;
     background-image: url("https://source.unsplash.com/random");
     background-size: cover;
     
@@ -36,8 +37,14 @@ body {
 }
 
 #bookmarksbar {
+    display: inline-block;
+    //background-color: white;
+    padding: 0.2em;
+    margin: 0;
+    
     li {
         display:inline;
         margin: 0 0.2em 0 0.2em;
+        filter: drop-shadow(0 0 1em #FFF);
     }
 }

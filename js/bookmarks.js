@@ -22,6 +22,7 @@ function displayBookmarks() {
             
             bookmarkLink.setAttribute("href", bookmark.url);
             bookmarkIcon.setAttribute("src", "chrome://favicon/" + bookmark.url);
+            bookmarkIcon.setAttribute("title", bookmark.title);
             
             bookmarkLink.appendChild(bookmarkIcon);
             bookmarkEntry.appendChild(bookmarkLink);
