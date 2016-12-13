@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Nutab New Tab Replacer",
+    "description": "The title of the extension, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "A beautifully simple new tab replacer.",
+    "description": "The description of the extension purpose."
+  },
+  "appNewTab": {
+    "message": "New tab",
+    "description": "Label for the new tab title."
+  }
+}
