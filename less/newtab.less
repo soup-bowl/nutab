@@ -1,5 +1,8 @@
 // out: ../css/newtab.css, compress: true, sourceMap: true
 
+@import "fonts"; 
+@fontsDefault: LatoWebThin, sans-serif;
+
 body {
     background-color: black;
     background-image: url("https://source.unsplash.com/random/daily");
@@ -12,7 +15,7 @@ body {
     color: #f6f6f6;
     text-shadow: 0 0 25px #000;
     font-weight: 100;
-    font-family: sans-serif;
+    font-family: @fontsDefault;
 }
 
 .container {
@@ -22,7 +25,7 @@ body {
 
         .title {
             font-size: 96px;
-            margin-bottom: 25px;
+            font-family: @fontsDefault;
         }
 
         .subtitle {
@@ -38,6 +41,12 @@ body {
 
         p {
             margin: 0.25em;
+        }
+
+        a {
+            &:link, &:visited, &:hover, &:active {
+                color: white;
+            }
         }
     }
 }
