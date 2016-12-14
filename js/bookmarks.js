@@ -29,6 +29,7 @@ function displayBookmarks() {
  * @param {BookmarkTreeNode} bookmark 
  */
 function createBookmarkIcon(parent, bookmark) {
+    console.log(bookmark);
     var bookmarkEntry = document.createElement("LI");
     var bookmarkLink = document.createElement("A");   // Hyperlink
     var bookmarkIcon = document.createElement("IMG"); // Favicon
@@ -38,9 +39,18 @@ function createBookmarkIcon(parent, bookmark) {
     bookmarkIcon.setAttribute("class", "favicon");
     bookmarkIcon.setAttribute("title", bookmark.title);
 
+    // If Chrome app launcher.
     if (bookmark.url === "chrome://apps/") {
         bookmarkIcon.setAttribute("id", "applauncher");
         bookmarkIcon.setAttribute("title", "App Launcher");
+    }
+
+    // If bookmark folder.
+    if (bookmark.children !== undefined) {
+        bookmarkIcon.setAttribute("class", "folder");
+        bookmarkIcon.setAttribute("src", "../img/folder.svg");
+        bookmarkLink.setAttribute("href", "#");
+        bookmarkLink.setAttribute("data-id", bookmark.id);
     }
     
     bookmarkLink.appendChild(bookmarkIcon);
