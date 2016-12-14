@@ -62,21 +62,24 @@ function getOrdinal(d) {
 /**
  * Looping script to update an element with the current time and date.
  */
-function startTime() {
+function startTime(militaryFormat = true) {
     var today = new Date();
-    var h = today.getHours();
+    var h = today.getHours(); 
     var m = today.getMinutes();
+    var u = h >= 12 ? 'pm' : 'am';
+
+    h = !militaryFormat ? today.getHours() % 12 || 12 : h;
     
     m = checkTime(m);
 
-    var time = h + ":" + m;
+    var time = militaryFormat ? h + ":" + m : h + ":" + m + "<span class='ampm'>" + u + "</span>";
     var date = today.getDay() + "<sup>" + getOrdinal( today.getDay() ) + "</sup> " + literalMonth[today.getMonth()] + " " + today.getFullYear();
 
     document.getElementById('time').innerHTML = time;
     document.getElementById('date').innerHTML = date;
     
     t = setTimeout(function () {
-        startTime()
+        startTime(militaryFormat)
     }, 30000);
 }
-startTime();
+startTime(false);
