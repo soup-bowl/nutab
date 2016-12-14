@@ -23,12 +23,12 @@ function displayBookmarks() {
             bookmarkLink.setAttribute("href", bookmark.url);
             bookmarkIcon.setAttribute("src", "chrome://favicon/" + bookmark.url);
             bookmarkIcon.setAttribute("class", "favicon");
-            
+            bookmarkIcon.setAttribute("title", bookmark.title);
+
             if (bookmark.url === "chrome://apps/") {
                 bookmarkIcon.setAttribute("id", "applauncher");
+                bookmarkIcon.setAttribute("title", "App Launcher");
             }
-
-            bookmarkIcon.setAttribute("title", bookmark.title);
             
             bookmarkLink.appendChild(bookmarkIcon);
             bookmarkEntry.appendChild(bookmarkLink);
