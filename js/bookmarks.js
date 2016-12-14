@@ -29,7 +29,6 @@ function displayBookmarks() {
  * @param {BookmarkTreeNode} bookmark 
  */
 function createBookmarkIcon(parent, bookmark) {
-    console.log(bookmark);
     var bookmarkEntry = document.createElement("LI");
     var bookmarkLink = document.createElement("A");   // Hyperlink
     var bookmarkIcon = document.createElement("IMG"); // Favicon
