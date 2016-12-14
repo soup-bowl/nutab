@@ -23,11 +23,22 @@ function displayBookmarks() {
             bookmarkLink.setAttribute("href", bookmark.url);
             bookmarkIcon.setAttribute("src", "chrome://favicon/" + bookmark.url);
             bookmarkIcon.setAttribute("class", "favicon");
+            
+            if (bookmark.url === "chrome://apps/") {
+                bookmarkIcon.setAttribute("id", "applauncher");
+            }
+
             bookmarkIcon.setAttribute("title", bookmark.title);
             
             bookmarkLink.appendChild(bookmarkIcon);
             bookmarkEntry.appendChild(bookmarkLink);
             bookmarkBar.appendChild(bookmarkEntry);
+        });
+
+        // Enable launching of the App tray, which is otherwise blocked.
+        document.getElementById("applauncher").addEventListener("click", function() { 
+            event.preventDefault();
+            chrome.tabs.update({url: "chrome://apps/"});
         });
     }); 
 }
