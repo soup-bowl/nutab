@@ -1,0 +1,24 @@
+{
+	"mappings": [
+		 {	
+		 	"src": "less",
+		 	"dest": "css"
+		 }
+	],
+	"ignores": [
+		"*.css",
+		"*.js",
+		"*fonts.less"
+		],
+	"options": {
+		"outputStyle": 	"compress",
+		"lineComments": false,
+		"debugInfo": 	false,
+		"strictMath": 	false,
+		"strictUnits": 	false,
+		"sourceMap": 	true,
+		"autoprefix": 	false
+	},
+	"customOptions": [],
+	"includePaths": []
+}

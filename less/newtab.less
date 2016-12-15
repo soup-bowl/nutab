@@ -1,16 +1,26 @@
 // out: ../css/newtab.css, compress: true, sourceMap: true
 
 @import "fonts"; 
-@fontsDefault: LatoWebThin, sans-serif;
+@fontsDefault:  LatoWebThin,  sans-serif;
+@fontsHeadline: LatoWeb,      sans-serif;
+@fontsFooter:   LatoWebLight, sans-serif;
+
+@colText:       #f6f6f6;
+@colBackground: grey;
+@colShadow:     black;
+@colShadowAlt:  white;
+
+@bgSource: url("https://source.unsplash.com/daily");
+@bgBackup: url("../img/photo-1445089073948-809762476ed5.jpg");
 
 body {
-    background-color: gray;
+    background-color: @colBackground;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    color: #f6f6f6;
-    text-shadow: 0 0 25px #000;
+    color: @colText;
+    text-shadow: 0 0 25px @colShadow;
     font-weight: 100;
     font-family: @fontsDefault;
 }
@@ -18,8 +28,8 @@ body {
 .background {
     width: 100%;
     height: 100%;
-    background-image: url("../img/photo-1445089073948-809762476ed5.jpg");
-    background-image: url("https://source.unsplash.com/daily");
+    background-image: @bgBackup;
+    background-image: @bgSource;
     background-size: cover;
     position: fixed;
     top: 0;
@@ -59,7 +69,7 @@ body {
 
         a {
             &:link, &:visited, &:hover, &:active {
-                color: white;
+                color: @colText;
             }
         }
     }
@@ -73,11 +83,15 @@ body {
     p {
         margin: 0.25em 0 0 0;
     }
+
+    #broadcast {
+        font-family: @fontsHeadline;
+        text-shadow: 0 0 15px @colShadow;
+    }
 }
 
 #bookmarksbar {
     display: inline-block;
-    //background-color: white;
     padding: 0.2em;
     margin: 0;
     
@@ -86,7 +100,7 @@ body {
         margin: 0 0.4em 0 0.4em;
 
         img {
-            filter: drop-shadow(0 0 1em #FFF);
+            filter: drop-shadow(0 0 1em @colShadowAlt);
             width: 16px;
             height: 16px;
         }
