@@ -24,11 +24,14 @@
 // Font
 @fntTitle:      @fonts1;
 @fntContent:    @fonts1;
+@fntSubmenu:    @fonts2;
 @fntFooter:     @fonts3;
 @fntBroadcast:  @fonts2;
 // Colour
 @colTitle:      @colour1;
 @colContent:    @colour1;
+@colSubmenuText:@colour4;
+@colSubmenuBG:  @colour3;    
 @colFooter:     @colour1;
 @colBroadcast:  @colour1;
 @colBackground: @colour2;
@@ -131,10 +134,35 @@ body {
     }
 
     .subfolder {
-        
+        position: relative;
+        display: inline-block;
         .subfolder-content {
             display: none;
             position: absolute;
+            width: 20em;
+            background-color: @colSubmenuBG;
+            font-family: @fntSubmenu;
+            font-size: 1.2em;
+            color: @colSubmenuText;
+            padding: 0;
+            margin: 0;
+
+            li {
+                display: list-item;
+                text-align: left;
+                list-style: none;
+                text-shadow: none;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+
+                a {
+                    &:link, &:visited, &:hover, &:active {
+                        color: @colSubmenuText;
+                        text-decoration: none;
+                    }
+                }
+            }
         }
 
         &:hover .subfolder-content {

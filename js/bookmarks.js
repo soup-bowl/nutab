@@ -13,7 +13,7 @@ function displayBookmarks() {
 
         var bookmarkBar = document.getElementById("bookmarksbar");
 
-        createBookmarkIcons(bookmarkBar, e[0].children);
+        createBookmarkEntries(bookmarkBar, e[0].children);
 
         // Enable launching of the App tray, which is otherwise blocked.
         document.getElementById("applauncher").addEventListener("click", function() { 
@@ -24,29 +24,42 @@ function displayBookmarks() {
 }
 
 /**
- * Creates a HTML image with hyperlink representing the favicon, and hyperlink to the bookmark.
+ * Creates a HTML entry with a hyperlink representing a bookmark, and hyperlink to the bookmark.
+ * 
+ * If icons is false, the entry will be generated as a text item instead of an icon.
  * @param {Object}           parent   - UL/OL DOM where the bookmark bar is located. 
  * @param {BookmarkTreeNode} bookmark 
+ * @param {Boolean}          [icons]
  */
-function createBookmarkIcon(parent, bookmark) {
+function createBookmarkEntry(parent, bookmark, icons = true) {
     var bookmarkEntry = document.createElement("LI");
     var bookmarkLink = document.createElement("A");   // Hyperlink
-    var bookmarkIcon = document.createElement("IMG"); // Favicon
     
-    bookmarkLink.setAttribute("href", bookmark.url);
-    bookmarkIcon.setAttribute("src", "chrome://favicon/" + bookmark.url);
-    bookmarkIcon.setAttribute("class", "favicon");
-    bookmarkIcon.setAttribute("title", bookmark.title);
+    if (icons) {
+        var bookmarkIcon = document.createElement("IMG"); // Favicon
+        
+        bookmarkLink.setAttribute("href", bookmark.url);
+        bookmarkIcon.setAttribute("src", "chrome://favicon/" + bookmark.url);
+        bookmarkIcon.setAttribute("class", "favicon");
+        bookmarkIcon.setAttribute("title", bookmark.title);
 
-    // If Chrome app launcher.
-    if (bookmark.url === "chrome://apps/") {
-        bookmarkIcon.setAttribute("id", "applauncher");
-        bookmarkIcon.setAttribute("title", "App Launcher");
+        // If Chrome app launcher.
+        if (bookmark.url === "chrome://apps/") {
+            bookmarkIcon.setAttribute("id", "applauncher");
+            bookmarkIcon.setAttribute("title", "App Launcher");
+        }
+        
+        bookmarkLink.appendChild(bookmarkIcon);
+        bookmarkEntry.appendChild(bookmarkLink);
+        parent.appendChild(bookmarkEntry);
+    } else {
+        bookmarkLink.setAttribute("href", bookmark.url);
+        bookmarkLink.setAttribute("class", "menuitem");
+        bookmarkLink.textContent = bookmark.title;
+
+        bookmarkEntry.appendChild(bookmarkLink);
+        parent.appendChild(bookmarkEntry);
     }
-    
-    bookmarkLink.appendChild(bookmarkIcon);
-    bookmarkEntry.appendChild(bookmarkLink);
-    parent.appendChild(bookmarkEntry);
 }
 
 /**
@@ -72,7 +85,7 @@ function createBookmarkFolder(parent, bookmark) {
     bookmarkIcon.setAttribute("title", bookmark.title);
     bookmarkEntryCollection.setAttribute("class", "subfolder-content");
     
-    createBookmarkIcons(bookmarkEntryCollection, bookmark.children, false);
+    createBookmarkEntries(bookmarkEntryCollection, bookmark.children, false, false);
 
     bookmarkLink.appendChild(bookmarkIcon);
     bookmarkEntry.appendChild(bookmarkLink);
@@ -83,15 +96,16 @@ function createBookmarkFolder(parent, bookmark) {
 
 /** 
  * Creates a collection of HTML images with hyperlinks representing the respective favicon, and hyperlink to the said bookmark.
- * @see {@link createBookmarkIcon}
+ * @see {@link createBookmarkEntry}
  * @param {Object}           parent    - UL/OL DOM where the bookmark bar is located. 
  * @param {BookmarkTreeNode} bookmarks - Collection of BookmarkTreeNode.
  * @param {Boolean}          [folders] - Whether folders should be returned or not.
+ * @param {Boolean}          [icons]   - If icons or menu items. Icons default.
  */
-function createBookmarkIcons(parent, bookmarks, folders = true) {
+function createBookmarkEntries(parent, bookmarks, folders = true, icons = true) {
     bookmarks.forEach(function(bookmark) {
         if (bookmark.children === undefined) {
-            createBookmarkIcon(parent, bookmark);
+            createBookmarkEntry(parent, bookmark, icons);
         } else {
             if (folders) {
                 createBookmarkFolder(parent, bookmark);
