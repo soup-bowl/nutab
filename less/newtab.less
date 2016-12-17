@@ -37,6 +37,7 @@
 @colBackground: @colour2;
 @txtShadow:     @colour3;
 @icnShadow:     @colour3;
+@mnuShadow:     @colour3;
 
 // -----------------
 
@@ -140,12 +141,14 @@ body {
             display: none;
             position: absolute;
             width: 20em;
-            background-color: @colSubmenuBG;
+            background-color: fade(@colSubmenuBG, 75%);
             font-family: @fntSubmenu;
             font-size: 1.2em;
             color: @colSubmenuText;
-            padding: 0;
-            margin: 0;
+            padding: 0.5em;
+            //margin: 0 20em 0 0;
+            border-radius: 0.5em;
+            box-shadow: 0 0.1em 1em @mnuShadow;
 
             li {
                 display: list-item;
@@ -153,6 +156,8 @@ body {
                 list-style: none;
                 text-shadow: none;
                 text-overflow: ellipsis;
+                margin-bottom: 0.2em;
+                border-bottom: solid 0.1em @colSubmenuBG;
                 white-space: nowrap;
                 overflow: hidden;
 
