@@ -43,18 +43,40 @@ function createBookmarkIcon(parent, bookmark) {
         bookmarkIcon.setAttribute("id", "applauncher");
         bookmarkIcon.setAttribute("title", "App Launcher");
     }
-
-    // If bookmark folder.
-    if (bookmark.children !== undefined) {
-        bookmarkIcon.setAttribute("class", "folder");
-        bookmarkIcon.setAttribute("src", "../img/folder.svg");
-        bookmarkLink.setAttribute("href", "#");
-        bookmarkLink.setAttribute("data-id", bookmark.id);
-    }
     
     bookmarkLink.appendChild(bookmarkIcon);
     bookmarkEntry.appendChild(bookmarkLink);
     parent.appendChild(bookmarkEntry);
+}
+
+/**
+ * Creates a HTML folder with a submenu for bookmark folders.
+ * @param {Object}           parent   - UL/OL DOM where the bookmark bar is located. 
+ * @param {BookmarkTreeNode} bookmark 
+ */
+function createBookmarkFolder(parent, bookmark) {
+    var folderContainer         = document.createElement("SPAN");
+    var bookmarkEntryCollection = document.createElement("UL");
+    var bookmarkEntry           = document.createElement("LI");
+    var bookmarkLink            = document.createElement("A");   
+    var bookmarkIcon            = document.createElement("IMG"); 
+    
+    // Setup folder icon and container
+    folderContainer.setAttribute("class", "subfolder");
+    folderContainer.setAttribute("id", bookmark.id);
+    bookmarkLink.setAttribute("href", "#");
+    bookmarkLink.setAttribute("data-id", bookmark.id);
+    bookmarkIcon.setAttribute("class", "folder");
+    bookmarkIcon.setAttribute("src", "../img/folder.svg");
+    bookmarkIcon.setAttribute("title", bookmark.title);
+    
+    createBookmarkIcons(bookmarkEntryCollection, bookmark.children, false);
+
+    bookmarkLink.appendChild(bookmarkIcon);
+    bookmarkEntry.appendChild(bookmarkLink);
+    bookmarkEntry.appendChild(bookmarkEntryCollection);
+    folderContainer.appendChild(bookmarkEntry);
+    parent.appendChild(folderContainer);
 }
 
 /** 
@@ -62,9 +84,16 @@ function createBookmarkIcon(parent, bookmark) {
  * @see {@link createBookmarkIcon}
  * @param {Object}           parent    - UL/OL DOM where the bookmark bar is located. 
  * @param {BookmarkTreeNode} bookmarks - Collection of BookmarkTreeNode.
+ * @param {Boolean}          [folders] - Whether folders should be returned or not.
  */
-function createBookmarkIcons(parent, bookmarks) {
+function createBookmarkIcons(parent, bookmarks, folders = true) {
     bookmarks.forEach(function(bookmark) {
-        createBookmarkIcon(parent, bookmark);
+        if (bookmark.children === undefined) {
+            createBookmarkIcon(parent, bookmark);
+        } else {
+            if (folders) {
+                createBookmarkFolder(parent, bookmark);
+            } 
+        }      
     });
 }
