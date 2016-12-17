@@ -18,6 +18,7 @@
 // Miscellaneous
 @bgSource: url("https://source.unsplash.com/category/nature/daily");
 @bgBackup: url("../img/photo-1445089073948-809762476ed5.jpg");
+@mnuWidth: 20em;
 
 // -- Application --
 
@@ -140,7 +141,7 @@ body {
         .subfolder-content {
             display: none;
             position: absolute;
-            width: 20em;
+            width: @mnuWidth;
             background-color: fade(@colSubmenuBG, 75%);
             font-family: @fntSubmenu;
             font-size: 1.2em;
