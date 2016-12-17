@@ -132,8 +132,13 @@ body {
 
     .subfolder {
         
-        ul {
+        .subfolder-content {
             display: none;
+            position: absolute;
+        }
+
+        &:hover .subfolder-content {
+            display: block;
         }
     }
 }

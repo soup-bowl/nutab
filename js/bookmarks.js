@@ -64,11 +64,13 @@ function createBookmarkFolder(parent, bookmark) {
     // Setup folder icon and container
     folderContainer.setAttribute("class", "subfolder");
     folderContainer.setAttribute("id", bookmark.id);
+    bookmarkLink.setAttribute("class", "subfolder-button");
     bookmarkLink.setAttribute("href", "#");
     bookmarkLink.setAttribute("data-id", bookmark.id);
     bookmarkIcon.setAttribute("class", "folder");
     bookmarkIcon.setAttribute("src", "../img/folder.svg");
     bookmarkIcon.setAttribute("title", bookmark.title);
+    bookmarkEntryCollection.setAttribute("class", "subfolder-content");
     
     createBookmarkIcons(bookmarkEntryCollection, bookmark.children, false);
 
