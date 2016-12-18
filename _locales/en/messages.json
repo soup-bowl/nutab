@@ -10,5 +10,89 @@
   "appNewTab": {
     "message": "New tab",
     "description": "Label for the new tab title."
+  },
+  "labelBroadcast": {
+    "message": "Start typing to search",
+    "description": "Message displayed under the bookmarks bar when idle. Normally indicating to type immediately to search."
+  },
+  "labelCourtesy": {
+    "message": "Images courtesy of",
+    "description": "Displayed before the name of the background source at the bottom."
+  },
+  "daySunday": {
+    "message": "Sunday",
+    "description": "Localised name for the day of week."
+  },
+  "dayMonday": {
+    "message": "Monday",
+    "description": "Localised name for the day of week."
+  },
+  "dayTuesday": {
+    "message": "Tuesday",
+    "description": "Localised name for the day of week."
+  },
+  "dayWednesday": {
+    "message": "Wednesday",
+    "description": "Localised name for the day of week."
+  },
+  "dayThursday": {
+    "message": "Thursday",
+    "description": "Localised name for the day of week."
+  },
+  "dayFriday": {
+    "message": "Friday",
+    "description": "Localised name for the day of week."
+  },
+  "daySaturday": {
+    "message": "Saturday",
+    "description": "Localised name for the day of week."
+  },
+  "monthJanuary": {
+    "message": "January",
+    "description": "The first named month of the year."
+  },
+  "monthFebruary": {
+    "message": "February",
+    "description": "The second named month of the year."
+  },
+  "monthMarch": {
+    "message": "March",
+    "description": "The third named month of the year."
+  },
+  "monthApril": {
+    "message": "April",
+    "description": "The fourth named month of the year."
+  },
+  "monthMay": {
+    "message": "May",
+    "description": "The fifth named month of the year."
+  },
+  "monthJune": {
+    "message": "June",
+    "description": "The sixth named month of the year."
+  },
+  "monthJuly": {
+    "message": "July",
+    "description": "The seventh named month of the year."
+  },
+  "monthAugust": {
+    "message": "August",
+    "description": "The eighth named month of the year."
+  },
+  "monthSeptember": {
+    "message": "September",
+    "description": "The ninth named month of the year."
+  },
+  "monthOctober": {
+    "message": "October",
+    "description": "The tenth named month of the year."
+  },
+  "monthNovember": {
+    "message": "November",
+    "description": "The eleventh named month of the year."
+  },
+  "monthDecember": {
+    "message": "December",
+    "description": "The twelfth named month of the year."
   }
 }

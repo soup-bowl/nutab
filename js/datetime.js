@@ -1,31 +1,6 @@
 // Clock script, altered from StackOverflow answer.
 // http://stackoverflow.com/a/18229123
 
-var literalMonth = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-];
-
-var literalDay = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-];
-
 /**
  * Appends 0 if the ending digit is single.
  * @param {integer} i
@@ -73,7 +48,7 @@ function startTime(militaryFormat = true) {
     m = checkTime(m);
 
     var time = militaryFormat ? h + ":" + m : h + ":" + m + "<span class='ampm'>" + u + "</span>";
-    var date = literalDay[today.getDay()] + " " + today.getDate() + "<sup>" + getOrdinal( today.getDay() ) + "</sup> " + literalMonth[today.getMonth()] + " " + today.getFullYear();
+    var date = dateLiterals.days[today.getDay()] + " " + today.getDate() + "<sup>" + getOrdinal( today.getDay() ) + "</sup> " + dateLiterals.months[today.getMonth()] + " " + today.getFullYear();
 
     document.getElementById('time').innerHTML = time;
     document.getElementById('date').innerHTML = date;
