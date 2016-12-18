@@ -73,7 +73,7 @@ function startTime(militaryFormat = true) {
     m = checkTime(m);
 
     var time = militaryFormat ? h + ":" + m : h + ":" + m + "<span class='ampm'>" + u + "</span>";
-    var date = today.getDay() + "<sup>" + getOrdinal( today.getDay() ) + "</sup> " + literalMonth[today.getMonth()] + " " + today.getFullYear();
+    var date = literalDay[today.getDay()] + " " + today.getDate() + "<sup>" + getOrdinal( today.getDay() ) + "</sup> " + literalMonth[today.getMonth()] + " " + today.getFullYear();
 
     document.getElementById('time').innerHTML = time;
     document.getElementById('date').innerHTML = date;
