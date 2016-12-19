@@ -23,22 +23,24 @@
 // -- Application --
 
 // Font
-@fntTitle:      @fonts1;
-@fntContent:    @fonts1;
-@fntSubmenu:    @fonts2;
-@fntFooter:     @fonts3;
-@fntBroadcast:  @fonts2;
+@fntTitle:       @fonts1;
+@fntContent:     @fonts1;
+@fntSubmenu:     @fonts2;
+@fntFooter:      @fonts3;
+@fntBroadcast:   @fonts2;
+@fntQuoteText:   @fonts3;
+@fntQuoteAuthor: @fonts1;
 // Colour
-@colTitle:      @colour1;
-@colContent:    @colour1;
-@colSubmenuText:@colour4;
-@colSubmenuBG:  @colour3;    
-@colFooter:     @colour1;
-@colBroadcast:  @colour1;
-@colBackground: @colour2;
-@txtShadow:     @colour3;
-@icnShadow:     @colour3;
-@mnuShadow:     @colour3;
+@colTitle:       @colour1;
+@colContent:     @colour1;
+@colSubmenuText: @colour4;
+@colSubmenuBG:   @colour3;    
+@colFooter:      @colour1;
+@colBroadcast:   @colour1;
+@colBackground:  @colour2;
+@txtShadow:      @colour3;
+@icnShadow:      @colour3;
+@mnuShadow:      @colour3;
 
 // -----------------
 
@@ -91,9 +93,24 @@ body {
         position: absolute;
         bottom: 0;
         left: 0;
+        width: 100%;
 
         p {
             margin: 0.25em;
+
+            &.quote {
+                text-align: center;
+            }
+
+            &#quotetext {
+                font-family: @fntQuoteText;
+                font-size: 2em;
+            }
+
+            &#quoteauthor {
+                font-family: @fntQuoteAuthor;
+                font-size: 1.5em;
+            }
         }
 
         a {
@@ -142,6 +159,7 @@ body {
     .subfolder {
         position: relative;
         display: inline-block;
+        
         .subfolder-content {
             display: none;
             position: absolute;
