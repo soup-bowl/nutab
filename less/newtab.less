@@ -14,6 +14,7 @@
 @colour2: grey;
 @colour3: black;
 @colour4: white;
+@colour5: rgba(0, 0, 0, 0.1);
 
 // Miscellaneous
 @bgSource: url("https://source.unsplash.com/category/nature/daily");
@@ -38,6 +39,7 @@
 @colFooter:      @colour1;
 @colBroadcast:   @colour1;
 @colBackground:  @colour2;
+@colBGFilm:      @colour5;
 @txtShadow:      @colour3;
 @icnShadow:      @colour3;
 @mnuShadow:      @colour3;
@@ -71,7 +73,7 @@ body {
     .film {
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.25);
+        background-color: @colBGFilm;
         position: fixed;
         top: 0;
         left: 0;
@@ -97,6 +99,7 @@ body {
         .subtitle {
             font-size: 2.5em;
             margin-bottom: 0.5em;
+            text-shadow: 0 0 25px @txtShadow, 0 0 25px @txtShadow;
         }
     }
 
