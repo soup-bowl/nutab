@@ -1,6 +1,3 @@
-# Nutab New Tab Replacer
-### Beautifully simple new tab replacer for Chrome.
-
 ![Nutab new tab screenshot](https://soup-bowl.github.io/nutab/screenshot/0170219.png)
 
 ## Description
