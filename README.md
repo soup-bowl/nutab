@@ -6,7 +6,9 @@ Nutab replaces the background page with a beautiful full-sized wallpaper-esque i
 Background photographs are sourced from the free and incredible [unSplash API](https://source.unsplash.com/). 
 
 ## Installation
-This app is currently not released on the Chrome store. This page will be updated with the private (alpha) release when the time comes. Meanwhile, you can download the code and run it for yourself.
+[![Available on the Chrome Store][2]][1]
+
+The latest version release (0.1) is currently available (albeit hidden due to Alpha) in the Chrome store.
 
 To test the latest development build extension, installation is relatively simple:
 
@@ -24,3 +26,6 @@ Once the extension is installed and activated, it should be running from the get
 While the search bar isn't there for this extension, the search feature still exists. When the new tab opens, simply type straight away and the familiar UI will appear. Otherwise, click on the address bar rather than the old Google search bar and the same thing will happen.
 
 To change the bookmark bar layout, open up the bookmark manager (ctrl-shift-o) and edit the layout of 'Bookmarks Bar' folder. The tab page will adhere to the layout found in this folder, which includes showing the first level of subfolders. When hovering over a bookmark, the 'type to search' text will change to the name of the bookmark (no named bookmarks will show the URL instead).
+
+  [1]: https://chrome.google.com/webstore/detail/nutab-new-tab-replacer/gakefcipoclekkcillingdakceienkkm
+  [2]: https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png (Available on the Chrome Store)
